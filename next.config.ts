@@ -3,25 +3,20 @@ import type { Configuration } from "webpack";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-
   poweredByHeader: false,
   compress: true,
 
-  /* ---------- TURBOPACK (GLSL SAFE) ---------- */
-  experimental: {
-    turbo: {
-      rules: {
-        "*.glsl": { loaders: ["raw-loader", "glslify-loader"] },
-        "*.vert": { loaders: ["raw-loader", "glslify-loader"] },
-        "*.frag": { loaders: ["raw-loader", "glslify-loader"] },
-        "*.vs": { loaders: ["raw-loader", "glslify-loader"] },
-        "*.fs": { loaders: ["raw-loader", "glslify-loader"] },
-      },
+   turbopack: {
+    rules: {
+      "*.glsl": { loaders: ["raw-loader", "glslify-loader"] },
+      "*.vert": { loaders: ["raw-loader", "glslify-loader"] },
+      "*.frag": { loaders: ["raw-loader", "glslify-loader"] },
+      "*.vs": { loaders: ["raw-loader", "glslify-loader"] },
+      "*.fs": { loaders: ["raw-loader", "glslify-loader"] },
     },
   },
 
-  /* ---------- WEBPACK (FALLBACK) ---------- */
-  webpack(config: Configuration) {
+   webpack(config: Configuration) {
     config.module?.rules?.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
       exclude: /node_modules/,
@@ -47,7 +42,7 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  /* ---------- BASIC SECURITY (SAFE FOR PORTFOLIO) ---------- */
+  /* ---------- SECURITY HEADERS ---------- */
   async headers() {
     return [
       {
@@ -55,7 +50,10 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
         ],
       },
     ];
