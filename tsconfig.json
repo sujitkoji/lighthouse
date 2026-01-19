@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    /* ---------- Basic Setup ---------- */
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "incremental": true,
+    /* ---------- React + JSX ---------- */
+    "jsx": "preserve", // 👈 Fixes <Tag> & JSX namespace errors
+    "types": [
+      "react",
+      "react-dom"
+    ], // 👈 Adds React type definitions
+    /* ---------- Module Resolution ---------- */
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    /* ---------- Paths ---------- */
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    /* ---------- Type Roots ---------- */
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ],
+    /* ---------- Next.js Plugin ---------- */
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  /* ---------- Include / Exclude ---------- */
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "types/**/*.d.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
