@@ -1,14 +1,14 @@
-# VOYAGE - Immersive WebGL Experience
+# LightHouse
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=flat&logo=vercel)](https://voyage-sujitkoji-portfolio-works.vercel.app/)
-[![Stars](https://img.shields.io/github/stars/sujitkoji/kojilab?style=flat)](https://github.com/sujitkoji/Voyage-Sujitkoji-Portfolio-Works/stargazers)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=flat&logo=vercel)](https://light-house-sujitkoji-portfolio-wor.vercel.app/)
+[![Stars](https://img.shields.io/github/stars/sujitkoji/kojilab?style=flat)](https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works/stargazers)
 [![License](https://img.shields.io/badge/License-Showcase-lightgrey?style=flat)](#license)
 
 ---
 
 ## Overview
 
-VOYAGE is a performance-focused WebGL scene built with React Three Fiber and Three.js.
+LightHouse is a performance-focused WebGL scene built with React Three Fiber and Three.js.
 The project explores real-time rendering, procedural animation, and cinematic composition
 for modern web-based 3D experiences.
 
@@ -16,13 +16,13 @@ for modern web-based 3D experiences.
 
 ## Live
 
-https://voyage-sujitkoji-portfolio-works.vercel.app/
+https://light-house-sujitkoji-portfolio-wor.vercel.app/
 
 ---
 
 ## Preview
 
-![VOYAGE Preview](https://github.com/sujitkoji/Voyage-Sujitkoji-Portfolio-Works/blob/main/public/voyage-img.png?raw=true)
+![LightHouse Preview](https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works/blob/main/public/lighthouse-img.png?raw=true)
 
 ---
 
@@ -78,7 +78,7 @@ gl={{ antialias: true, powerPreference: "high-performance" }}
 ```ts
 Canvas
  ├─ Ocean
- ├─ ShipGLB
+ ├─ LightHouseGLB
  ├─ MovingClouds
  ├─ Sky
  ├─ Stars
@@ -88,7 +88,7 @@ Canvas
 
 ## Development
 
-- git clone https://github.com/sujitkoji/Voyage-Sujitkoji-Portfolio-Works.git
+- git clone https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works.git
 - cd voyage
 - npm install
 - npm run dev
