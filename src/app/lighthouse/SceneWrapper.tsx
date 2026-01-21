@@ -1,12 +1,20 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useState } from "react";
+import Loader from "@/app/Loader/loader";
 
-const SceneCanvas = dynamic(
-  () => import("@/app/lighthouse/scene"),
-  { ssr: false }
-);
+const SceneCanvas = dynamic(() => import("@/app/lighthouse/scene"), {
+  ssr: false,
+});
 
 export default function SceneWrapper() {
-  return <SceneCanvas />;
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <>
+      {!loaded && <Loader onComplete={() => setLoaded(true)} />}
+      <SceneCanvas />
+    </>
+  );
 }

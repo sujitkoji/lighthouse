@@ -1,13 +1,17 @@
-"use client"
-import React from 'react'
-import Home from "@/app/lighthouse/SceneWrapper"
+"use client";
+import { useState } from "react";
+import SceneWrapper from "@/app/lighthouse/SceneWrapper";
+import Loader from "@/app/Loader/loader";
 
-export default function page() {
+export default function Page() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
-    <main>
-      <Home/>
-    </main>
-  )
+    <>
+      {!loaded && <Loader onComplete={() => setLoaded(true)} />}
+      <main>
+        <SceneWrapper />
+      </main>
+    </>
+  );
 }
-
-
