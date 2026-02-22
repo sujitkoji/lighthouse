@@ -4,14 +4,10 @@ import React, { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Cloud } from "@react-three/drei";
 
-
-
-// Lighthouse central position
-const LIGHTHOUSE_POS = new THREE.Vector3(0, 0, 0);
+ const LIGHTHOUSE_POS = new THREE.Vector3(0, 0, 0);
 const NO_CLOUD_RADIUS = 120;
 
-// Responsive cloud counts
-const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+ const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 const NORMAL_CLOUD_COUNT = isMobile ? 15 : 25;
 const RAIN_CLOUD_COUNT = isMobile ? 3 : 6;
 
@@ -32,16 +28,12 @@ function getSafePosition(
   } while (pos.distanceTo(LIGHTHOUSE_POS) < NO_CLOUD_RADIUS);
   return pos;
 }
-
-// ================================
-// COMPONENT
-// ================================
+ 
 export default function MovingClouds() {
   const groupRef = useRef<THREE.Group>(null);
   const rainGroupRef = useRef<THREE.Group>(null);
 
-  // ☁️ NORMAL CLOUDS (high + far)
-  const clouds = useMemo(() => {
+   const clouds = useMemo(() => {
     return Array.from({ length: NORMAL_CLOUD_COUNT }).map(() => ({
       basePos: getSafePosition(600, 55, 120, 600),
       speed: THREE.MathUtils.randFloat(0.008, 0.02),
@@ -50,8 +42,7 @@ export default function MovingClouds() {
     }));
   }, []);
 
-  // 🌧️ RAIN CLOUDS (low + heavy)
-  const rainClouds = useMemo(() => {
+   const rainClouds = useMemo(() => {
     return Array.from({ length: RAIN_CLOUD_COUNT }).map(() => ({
       basePos: getSafePosition(500, 22, 38, 500),
       speed: THREE.MathUtils.randFloat(0.004, 0.01),
@@ -60,14 +51,11 @@ export default function MovingClouds() {
     }));
   }, []);
 
-  // ================================
-  // ANIMATION
-  // ================================
+  
   useFrame(({ clock }) => {
     const t = clock.elapsedTime;
 
-    // ☁️ Normal clouds – wide & slow
-    if (groupRef.current) {
+     if (groupRef.current) {
       groupRef.current.children.forEach((cloud, i) => {
         const c = clouds[i];
         if (!c) return;
@@ -78,8 +66,7 @@ export default function MovingClouds() {
       });
     }
 
-    // 🌧️ Rain clouds – heavy & slow
-    if (rainGroupRef.current) {
+     if (rainGroupRef.current) {
       rainGroupRef.current.children.forEach((cloud, i) => {
         const c = rainClouds[i];
         if (!c) return;
@@ -91,13 +78,9 @@ export default function MovingClouds() {
     }
   });
 
-  // ================================
-  // RENDER
-  // ================================
-  return (
+   return (
     <>
-      {/* ☁️ NORMAL CLOUDS */}
-      <group ref={groupRef}>
+       <group ref={groupRef}>
         {clouds.map((c, i) => (
           <Cloud
             key={i}
@@ -110,8 +93,7 @@ export default function MovingClouds() {
         ))}
       </group>
 
-      {/* 🌧️ RAIN CLOUDS */}
-      <group ref={rainGroupRef}>
+       <group ref={rainGroupRef}>
         {rainClouds.map((c, i) => (
           <Cloud
             key={i}

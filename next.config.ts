@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
 
-   turbopack: {
+  turbopack: {
     rules: {
       "*.glsl": { loaders: ["raw-loader", "glslify-loader"] },
       "*.vert": { loaders: ["raw-loader", "glslify-loader"] },
@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     },
   },
 
-   webpack(config: Configuration) {
+  webpack(config: Configuration) {
     config.module?.rules?.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
       exclude: /node_modules/,
@@ -42,14 +42,19 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  /* ---------- SECURITY HEADERS ---------- */
   async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
-          { key: "X-Frame-Options", value: "DENY" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self' https://codepen.io https://cdpn.io https://lighthouse.vercel.app;",
+          },
+          { 
+            key: "X-Content-Type-Options", 
+            value: "nosniff" 
+          },
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",

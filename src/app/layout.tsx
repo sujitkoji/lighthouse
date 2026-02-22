@@ -1,13 +1,8 @@
-import { Inter, Sora } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
-const sora = Sora({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-sora",
-  display: "swap",
-});
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,25 +11,41 @@ const inter = Inter({
   display: "swap",
 });
 
+export const metadata: Metadata = {
+  title: "LightHouse - SujitKoji",
+  description: "LightHouse - WebGL Experience by Sujit Koji",
+
+  icons: {
+
+    icon: [
+      { url: "/favicon.ico" },
+      {url: "/favicon.svg", type: "image/svg+xml"},
+      { url: "/favicon-96x96.pngg", sizes: "96x96", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+
+  manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
-      <head>
-        <meta name="theme-color" content="#000000" />
-        <link rel="manifest" href="/manifest.json" />
-        <link
-          rel="apple-touch-icon"
-          href="/logo/web-app-manifest-192x192-sm.png"
-        />
-        <meta name="mobile-web-app-capable" content="yes" />
-      </head>
-
+    <html
+      lang="en"
+      className={`${inter.variable}`}
+      suppressHydrationWarning
+    >
       <body className="antialiased bg-black text-white">
         {children}
+        <Analytics />
       </body>
     </html>
   );

@@ -1,108 +1,117 @@
-# LightHouse
+<div align="center">
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=flat&logo=vercel)](https://light-house-sujitkoji-portfolio-wor.vercel.app/)
-[![Stars](https://img.shields.io/github/stars/sujitkoji/kojilab?style=flat)](https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works/stargazers)
-[![License](https://img.shields.io/badge/License-Showcase-lightgrey?style=flat)](#license)
+# L I G H T H O U S E
+### 001 // DIGITAL LANDSCAPE ENGINE
 
----
+[![WebGL](https://img.shields.io/badge/WebGL-3D-red.svg?style=for-the-badge)]()
+[![React Three Fiber](https://img.shields.io/badge/R3F-Library-black.svg?style=for-the-badge)]()
+[![Next.js](https://img.shields.io/badge/Next.js-14-white.svg?style=for-the-badge)]()
 
-## Overview
+**An immersive maritime environment crafted with WebGL & React Three Fiber.**
 
-LightHouse is a performance-focused WebGL scene built with React Three Fiber and Three.js.
-The project explores real-time rendering, procedural animation, and cinematic composition
-for modern web-based 3D experiences.
+[ [LAUNCH EXPERIENCE](https://light-house-sujitkoji-portfolio-wor.vercel.app/) ] &nbsp; • &nbsp; [ [RESOURCES](https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works) ]
 
----
+<br/>
 
-## Live
-
-https://light-house-sujitkoji-portfolio-wor.vercel.app/
+![Header](https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works/blob/main/public/lighthouse-img.png?raw=true)
 
 ---
 
-## Preview
+### / VISION
 
-![LightHouse Preview](https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works/blob/main/public/lighthouse-img.png?raw=true)
+**LightHouse** is a cinematic WebGL experiment focused on **atmosphere, scale, and motion**.  
+The project simulates a stormy maritime scene where **ocean dynamics, volumetric clouds, lightning, and lighting choreography** work together to create a believable digital landscape — entirely inside the browser.
 
----
-
-## Systems
-
-### Ocean
-- Water shader using three-stdlib
-- Time-uniform animation
-- Large-scale geometry for depth and scale
-
-### Ship
-- GLB asset loaded via useGLTF
-- Buoyancy motion using sine and cosine
-- Subtle rotational drift
-
-### Clouds
-- Procedural cloud distribution
-- Independent motion parameters
-- Optimized per-frame updates
-
-### Environment
-- Sky atmosphere
-- Star field for depth
-- Controlled camera interaction
+Every system is designed to run **GPU-first**, keeping React out of the render loop while maintaining declarative structure.
 
 ---
 
-## Stack
+### / CORE SYSTEMS
 
-| Layer | Tech |
-|------|------|
-| Framework | Next.js |
-| Renderer | React Three Fiber |
-| Core | Three.js |
-| Helpers | @react-three/drei |
-| Shaders | three-stdlib |
-| Deployment | Vercel |
+<table width="100%">
+  <tr>
+    <td width="33%" align="center" style="border: none;">
+      <code>[ 01. HYDROS ]</code><br/><br/>
+      <b>Custom Ocean Surface</b><br/>
+      <i>Shader-driven water + caustics</i>
+    </td>
+    <td width="33%" align="center" style="border: none;">
+      <code>[ 02. ATMOS ]</code><br/><br/>
+      <b>Dynamic Sky & Clouds</b><br/>
+      <i>Volumetric + instanced motion</i>
+    </td>
+    <td width="33%" align="center" style="border: none;">
+      <code>[ 03. SIGNAL ]</code><br/><br/>
+      <b>Lighthouse & Signal</b><br/>
+      <i>Rotating beam + stochastic flashes</i>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## Performance
+### / SYSTEM DESIGN NOTES
 
-- Clamped device pixel ratio
-- GPU-based animation
-- Ref-driven updates
-- Memoized procedural data
+#### // OCEAN SIMULATION
+The ocean is built using `three-stdlib`’s **Water** shader, extended via `onBeforeCompile` to introduce **animated caustics**. Wave motion is driven by time-based uniforms.
 
-```ts
-gl={{ antialias: true, powerPreference: "high-performance" }}
+$$y = A \cdot \sin(\omega t + \phi)$$
+
+#### // LIGHT & WEATHER
+- **Lightning:** Probabilistic point-light system with temporal decay.
+- **Lighthouse beam:** Spotlight with high penumbra for cinematic softness.
+
+---
+
+### / PERFORMANCE STRATEGY
+
+`IMPERATIVE UPDATES` • `DPR CLAMPING` • `GLTF OPTIMIZATION` • `SUSPENSE PIPELINE`
+
+---
+
+### / PROJECT STRUCTURE
+
+<table align="center" style="border-collapse: collapse; border: none;">
+<tr>
+<td align="left" style="background-color: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 30px;">
+<pre style="margin: 0; font-family: 'JetBrains Mono', 'Fira Code', monospace; line-height: 1.6; color: #c9d1d9; background: none; border: none;">
+<span style="color: #58a6ff;">app/</span>
+ ├─ <span style="color: #79c0ff;">lighthouse/</span>
+ │  ├─ scene.tsx          <span style="color: #8b949e;">// Main R3F canvas</span>
+ │  ├─ ocean.tsx          <span style="color: #8b949e;">// Water + shader extensions</span>
+ │  ├─ MovingClouds.tsx   <span style="color: #8b949e;">// Volumetric cloud system</span>
+ │  ├─ Lightning.tsx      <span style="color: #8b949e;">// Lightning flashes</span>
+ │  └─ lighthouseGLB.tsx  <span style="color: #8b949e;">// Lighthouse model & beam</span>
+ │
+ └─ <span style="color: #79c0ff;">Loader/</span>
+    └─ loader.tsx         <span style="color: #8b949e;">// Cinematic loading screen</span>
+</pre>
+</td>
+</tr>
+</table>
+
+---
+
+### / ARCHITECTURE
+
+```mermaid
+graph LR
+    A[Canvas] --> B[Sky & Fog]
+    A --> C[Ocean Shader]
+    A --> D[Cloud System]
+    A --> E[Lighthouse]
+    E --> F[Rotating Beam]
+    E --> G[Warm Glow]
+    A --> H[Lightning System]
+    style A fill:#111,stroke:#58a6ff,stroke-width:2px
+    style E fill:#111,stroke:#8b949e,stroke-width:2px
 ```
 
-## Architecture
-```ts
-Canvas
- ├─ Ocean
- ├─ LightHouseGLB
- ├─ MovingClouds
- ├─ Sky
- ├─ Stars
- └─ OrbitControls
-```
----
+### / ARCHITECTURE AUTHORSHIP
 
-## Development
+**SUJIT KOJI** Creative Technologist & WebGL Architect [ [PORTFOLIO](https://light-house-sujitkoji-portfolio-wor.vercel.app/) ] &nbsp; / &nbsp; [ [LINKEDIN](https://www.linkedin.com/in/sujitkoji/) ]
 
-- git clone https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works.git
-- cd voyage
-- npm install
-- npm run dev
 
----
+© 2026 — Open Source Creative Experiment
 
-## License
-
-Showcase and educational use only.
-
----
-
-## Author
-
-- Sujit Koji
-- WebGL / Frontend Developer
-- React · Three.js · GLSL
+</div>

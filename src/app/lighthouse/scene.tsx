@@ -22,18 +22,17 @@ export default function Scene() {
       }}
       dpr={[1, 2]}
     >
-      <fog attach="fog" args={["#020617", 150, 900]} />
-      <color attach="background" args={["#020617"]} />
+      <color attach="background" args={["#000000"]} />
 
       <pointLight decay={0} position={[100, 100, 100]} />
       <pointLight decay={0.05} position={[-100, -100, -100]} />
 
       <Sky
-        sunPosition={[-100, -13, -400]}
-        turbidity={10}
-        rayleigh={1.3}
-        mieCoefficient={0.07}
-        mieDirectionalG={0.9}
+        sunPosition={[-100, 30, -400]}
+        turbidity={0.6}
+        rayleigh={0.3}
+        mieCoefficient={0.5}
+        mieDirectionalG={1}
       />
 
       <Stars

@@ -1,117 +1,124 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@react-three/drei";
+import { useEffect, useState } from "react";
 
-export default function Loader({ onComplete }: { onComplete?: () => void }) {
+export default function AwwwardLighthouseLoader({ onComplete }: { onComplete?: () => void }) {
   const { progress } = useProgress();
+  const [isFinished, setIsFinished] = useState(false);
+
+  useEffect(() => {
+    if (progress === 100) {
+      const timer = setTimeout(() => {
+        setIsFinished(true);
+        onComplete?.();
+      }, 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [progress, onComplete]);
+
+  // Letters for the kinetic animation
+  const title = "LIGHTHOUSE";
 
   return (
-    <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: progress === 100 ? 0 : 1 }}
-      transition={{ duration: 1.8, ease: "easeInOut" }}
-      onAnimationComplete={() => progress === 100 && onComplete?.()}
-      style={{ pointerEvents: progress === 100 ? "none" : "auto" }}
-    >
-      {/* 🌌 CINEMATIC EVENING SKY */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg,#020617 0%,#071c33 35%,#3a1a08 65%,#050200 100%)",
-        }}
-      />
-
-      {/* ☀️ SUN DISC (LOW HORIZON) */}
-      <motion.div
-        className="absolute left-1/2 top-[68%] -translate-x-1/2 w-[38vw] max-w-[420px] aspect-square rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(255,210,140,0.95) 0%, rgba(255,160,80,0.55) 35%, transparent 70%)",
-          filter: "blur(8px)",
-        }}
-        animate={{ opacity: [0.75, 0.95, 0.75] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* 🌊 OCEAN LIGHT REFLECTION */}
-      <motion.div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, transparent 55%, rgba(255,180,110,0.10) 75%, transparent)",
-        }}
-        animate={{ opacity: [0.35, 0.6, 0.35] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* 🔦 LIGHTHOUSE BEAM */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          background:
-            "conic-gradient(from 210deg at 50% 72%, rgba(255,220,160,0.55), transparent 42%)",
-          filter: "blur(70px)",
-        }}
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
-      />
-
-      {/* 🎞️ FILM GRAIN */}
-      <div
-        className="absolute inset-0 opacity-[0.035] mix-blend-overlay"
-        style={{
-          background:
-            "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"120\"><filter id=\"n\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"4\"/></filter><rect width=\"120\" height=\"120\" filter=\"url(%23n)\"/></svg>')",
-        }}
-      />
-
-      {/* 🧊 PREMIUM UI */}
-      <div className="relative w-[78vw] max-w-[520px] backdrop-blur-md bg-white/[0.02] border border-white/10 rounded-xl p-6 shadow-[0_0_80px_rgba(255,180,100,0.08)]">
-        {/* LABEL */}
-        <div className="mb-5 flex justify-between items-end">
-          <span className="text-[10px] tracking-[0.5em] text-white/45">
-            LIGHTHOUSE SYSTEM
-          </span>
-          <span className="text-[11px] tracking-[0.35em] text-white/70">
-            {Math.floor(progress)}%
-          </span>
-        </div>
-
-        {/* PROGRESS BAR */}
-        <div className="relative h-[1px] bg-white/15 overflow-hidden">
-          <motion.div
-            className="absolute left-0 top-0 h-full"
-            style={{
-              width: `${progress}%`,
-              background:
-                "linear-gradient(90deg, rgba(255,190,120,0.35), rgba(255,235,200,1))",
+    <AnimatePresence>
+      {!isFinished && (
+        <motion.div
+          className="fixed inset-0 z-[9999] bg-[#080808] flex items-center justify-center overflow-hidden"
+          exit={{ 
+            clipPath: "circle(0% at 50% 50%)",
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
+          }}
+        >
+          {/* 🌊 AMBIENT GRADIENT BLOB */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3] 
             }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="absolute w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[120px]"
           />
 
-          {/* traveling highlight */}
-          <motion.div
-            className="absolute top-[-14px] h-[28px] w-[140px]"
-            style={{
-              left: `${progress - 10}%`,
-              background:
-                "radial-gradient(closest-side, rgba(255,220,170,0.45), transparent)",
-              filter: "blur(16px)",
-            }}
-          />
-        </div>
-      </div>
+          <div className="absolute top-[40%] flex flex-col items-center">
+             <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="w-16 h-16 mb-10"
+             >
+                <svg viewBox="0 0 100 100" className="fill-white overflow-visible">
+                  {/* Subtle Glow behind logo */}
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  <path 
+                    style={{ filter: "url(#glow)" }}
+                    d="M50 5 L40 25 L42 85 H58 L60 25 Z" 
+                  />
+                  {/* Light Beam from Logo */}
+                  <motion.circle 
+                    cx="50" cy="15" r="2" fill="gold"
+                    animate={{ opacity: [0, 1, 0], scale: [1, 2, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  />
+                </svg>
+             </motion.div>
+          </div>
 
-      {/* 🌑 VIGNETTE */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.45) 100%)",
-        }}
-      />
-    </motion.div>
+          {/* 🔡 KINETIC TEXT ENGINE */}
+          <div className="relative flex flex-col items-center overflow-hidden py-10">
+            <div className="flex overflow-hidden">
+              {title.split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  className="text-white text-[12vw] font-black leading-none tracking-tighter uppercase inline-block"
+                  initial={{ y: "100%", rotate: 20 }}
+                  animate={{ y: 0, rotate: 0 }}
+                  transition={{ 
+                    delay: i * 0.04, 
+                    duration: 0.8, 
+                    ease: [0.33, 1, 0.68, 1] 
+                  }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+
+            {/* PROGRESS METER - MINIMALIST */}
+            <div className="mt-8 flex items-center gap-6 w-full px-4">
+               <span className="text-white/30 text-[10px] tracking-[0.4em] uppercase">Status: Guiding</span>
+               <div className="flex-1 h-[1px] bg-white/10 relative overflow-hidden">
+                  <motion.div 
+                    className="absolute inset-0 bg-white"
+                    initial={{ scaleX: 0, originX: 0 }}
+                    animate={{ scaleX: progress / 100 }}
+                  />
+               </div>
+               <span className="text-white font-mono text-xs tabular-nums">
+                  {Math.round(progress)}%
+               </span>
+            </div>
+          </div>
+
+          {/* 🎥 THE GRAIN & NOISE (Awwwards Secret Sauce) */}
+          <div className="pointer-events-none absolute inset-0 opacity-[0.04] mix-blend-screen overflow-hidden">
+             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full scale-[2]">
+                <filter id="noiseFilter">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+                </filter>
+                <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+             </svg>
+          </div>
+
+          {/* 🌑 VIGNETTE MASK */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#000_100%)]" />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 * {
   box-sizing: border-box;
@@ -15,20 +14,8 @@ body {
 }
 
 body {
-  font-family: var(--font-sora), sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sora), sans-serif;
-  font-weight: 600;
-  color: #e0e0e0;
-}
-
-p {
-  font-family: var(--font-sora), sans-serif;
-  font-weight: 400;
-  color: #d0d0d0;
 }

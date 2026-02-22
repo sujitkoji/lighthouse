@@ -6,8 +6,8 @@ import { useFrame } from "@react-three/fiber";
 export default function Lightning({
   intensityMin = 4,
   intensityMax = 8,
-  flashProbability = 1, // 2% chance per frame
-  duration = 0.1,          // flash duration in seconds
+  flashProbability = 1,  
+  duration = 0.1,          
   position = [200, 120, 100] as [number, number, number],
 }) {
   const lightRef = useRef<THREE.PointLight>(null);
@@ -16,22 +16,19 @@ export default function Lightning({
   useFrame((state, delta) => {
     if (!lightRef.current) return;
 
-    // Agar currently flash ho raha hai
     if (timerRef.current > 0) {
       timerRef.current -= delta;
       if (timerRef.current <= 0) {
-        lightRef.current.intensity = 0; // flash end
+        lightRef.current.intensity = 0;  
       }
       return;
     }
 
-    // Random flash chance
-    if (Math.random() < flashProbability) {
+     if (Math.random() < flashProbability) {
       lightRef.current.intensity = THREE.MathUtils.randFloat(intensityMin, intensityMax);
       timerRef.current = duration;
 
-      // Optional: thoda position randomize kar ke real feel
-      lightRef.current.position.set(
+       lightRef.current.position.set(
         position[0] + THREE.MathUtils.randFloatSpread(50),
         position[1] + THREE.MathUtils.randFloatSpread(20),
         position[2] + THREE.MathUtils.randFloatSpread(50)
