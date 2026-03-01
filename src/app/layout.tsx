@@ -14,10 +14,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lighthouse.sujitkoji.com"), 
   title: {
-    default: "Pharos Lighthouse | A Cinematic WebGL Experience",
+    default: "Lighthouse | A Cinematic WebGL Experience",
     template: "%s | Sujit Koji",
   },
-  description: "Explore Pharos, a high-fidelity 3D digital sentinel standing against the oceanic tides of data. Created by Sujit Koji.",
+  description: "Explore Lighthouse, a high-fidelity 3D digital sentinel standing against the oceanic tides of data. Created by Sujit Koji.",
   keywords: ["WebGL", "Three.js", "Next.js", "Creative Developer", "Sujit Koji", "3D Portfolio", "Awwwards", "Digital Art"],
   authors: [{ name: "Sujit Koji", url: "https://sujitkoji.com" }],
   creator: "Sujit Koji",
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://lighthouse.sujitkoji.com",
-    title: "Pharos Lighthouse | Digital Sentinel",
+    title: "Lighthouse | Digital Sentinel",
     description: "An immersive architectural beacon standing against the digital tides.",
     siteName: "Lighthouse by Sujit Koji",
     images: [
       {
-        url: "/lighthouse-img.png", 
+        url: "https://lighthouse.sujitkoji.com/lighthouse-img.png", 
         width: 1200,
         height: 630,
         alt: "Lighthouse WebGL Experience Preview",
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Pharos Lighthouse | WebGL Experience",
+    title: "Lighthouse | WebGL Experience",
     description: "Immersive 3D beacon experience created with Next.js & Three.js",
     creator: "@sujitkoji", 
-    images: ["/lighthouse-img.png"],
+    images: ["https://lighthouse.sujitkoji.com/lighthouse-img.png"],
   },
 
   icons: {
