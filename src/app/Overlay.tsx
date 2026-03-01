@@ -35,11 +35,11 @@ export default function Overlay() {
 
               <div className="space-y-6">
                 <h2 className="text-4xl font-black text-white tracking-tighter uppercase italic leading-none">
-                  The Pharos <br /> Legacy
+                  The Lighthouse <br /> Legacy
                 </h2>
                 <div className="h-[2px] w-12 bg-red-600" />
                 <p className="text-white/50 text-xs leading-relaxed tracking-wide font-light">
-                  Pharos is not merely a structure; it is a digital sentinel. Standing at the edge of the network, it filters the noise of the vast oceanic data streams. 
+                  Lighthouse is not merely a structure; it is a digital sentinel. Standing at the edge of the network, it filters the noise of the vast oceanic data streams. 
                 </p>
                 <p className="text-white/50 text-xs leading-relaxed tracking-wide font-light">
                   Every pulse of its light represents a packet of truth delivered to the distant shores of the user interface.
