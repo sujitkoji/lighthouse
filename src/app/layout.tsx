@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Lighthouse by Sujit Koji",
     images: [
       {
-        url: "https://lighthouse.sujitkoji.com/lighthouse-img.png", 
+        url: "https://lighthouse.sujitkoji.com/og-img.png", 
         width: 1200,
         height: 630,
         alt: "Lighthouse WebGL Experience Preview",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Lighthouse | WebGL Experience",
     description: "Immersive 3D beacon experience created with Next.js & Three.js",
     creator: "@sujitkoji", 
-    images: ["https://lighthouse.sujitkoji.com/lighthouse-img.png"],
+    images: ["https://lighthouse.sujitkoji.com/og-img.png"],
   },
 
   icons: {
