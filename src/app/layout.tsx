@@ -14,24 +14,24 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lighthouse.sujitkoji.com"), 
   title: {
-    default: "Lighthouse | A Cinematic WebGL Experience",
+    default: "Lighthouse | Digital Sentinel",
     template: "%s | Sujit Koji",
   },
-  description: "Explore Lighthouse, a high-fidelity 3D digital sentinel standing against the oceanic tides of data. Created by Sujit Koji.",
-  keywords: ["WebGL", "Three.js", "Next.js", "Creative Developer", "Sujit Koji", "3D Portfolio", "Awwwards", "Digital Art"],
+  description: "An immersive architectural beacon standing against the digital tides. Experience high-fidelity WebGL storytelling.",
+  keywords: ["WebGL", "Three.js", "Creative Developer", "Sujit Koji", "3D Portfolio", "Awwwards"],
   authors: [{ name: "Sujit Koji", url: "https://sujitkoji.com" }],
   creator: "Sujit Koji",
   
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lighthouse.sujitkoji.com",
+    url: "https://lighthouse.sujitkoji.com/",
     title: "Lighthouse | Digital Sentinel",
     description: "An immersive architectural beacon standing against the digital tides.",
     siteName: "Lighthouse by Sujit Koji",
     images: [
       {
-        url: "https://lighthouse.sujitkoji.com/og-img.png", 
+        url: "https://lighthouse.sujitkoji.com/og-img.jpg", 
         width: 1200,
         height: 630,
         alt: "Lighthouse WebGL Experience Preview",
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Lighthouse | WebGL Experience",
-    description: "Immersive 3D beacon experience created with Next.js & Three.js",
+    title: "Lighthouse | Digital Sentinel",
+    description: "An immersive architectural beacon standing against the digital tides.",
     creator: "@sujitkoji", 
-    images: ["https://lighthouse.sujitkoji.com/og-img.png"],
+    images: ["https://lighthouse.sujitkoji.com/og-img.jpg"],
   },
 
   icons: {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" }, 
     ],
     apple: [
-        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
     ],
   },
 
@@ -86,11 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <body className="antialiased bg-black text-white selection:bg-red-500 selection:text-white">
         {children}
         <Analytics />
