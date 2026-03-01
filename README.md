@@ -9,11 +9,11 @@
 
 **An immersive maritime environment crafted with WebGL & React Three Fiber.**
 
-[ [LAUNCH EXPERIENCE](https://light-house-sujitkoji-portfolio-wor.vercel.app/) ] &nbsp; • &nbsp; [ [RESOURCES](https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works) ]
+[ [LAUNCH EXPERIENCE](https://lighthouse.sujitkoji.com/) ] &nbsp; • &nbsp; [ [RESOURCES](https://github.com/sujitkoji/lighthouse) ]
 
 <br/>
 
-![Header](https://github.com/sujitkoji/LightHouse-Sujitkoji-Portfolio-Works/blob/main/public/lighthouse-img.png?raw=true)
+![Header](https://github.com/sujitkoji/lighthouse/blob/main/public/lighthouse-img.png?raw=true)
 
 ---
 
@@ -109,7 +109,7 @@ graph LR
 
 ### / ARCHITECTURE AUTHORSHIP
 
-**SUJIT KOJI** Creative Technologist & WebGL Architect [ [PORTFOLIO](https://light-house-sujitkoji-portfolio-wor.vercel.app/) ] &nbsp; / &nbsp; [ [LINKEDIN](https://www.linkedin.com/in/sujitkoji/) ]
+**SUJIT KOJI** Creative Technologist & WebGL Architect [ [PORTFOLIO](https://sujitkoji.com) ] &nbsp; / &nbsp; [ [LINKEDIN](https://www.linkedin.com/in/sujitkoji/) ]
 
 
 © 2026 — Open Source Creative Experiment

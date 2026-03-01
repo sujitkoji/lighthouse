@@ -142,7 +142,7 @@ export default function Overlay() {
             onClick={() => setShowInfo(true)}
             whileHover="hover"
             whileTap={{ scale: 0.98 }}
-            className="relative px-6 py-4 bg-white text-black text-[10px] font-bold tracking-[0.4em] uppercase rounded-sm overflow-hidden pointer-events-auto group shadow-2xl transition-all duration-500"
+            className="relative px-0 py-1 md:px-6 md:py-4 bg-white text-black text-[10px] font-bold tracking-[0.4em] uppercase rounded-sm overflow-hidden pointer-events-auto group shadow-2xl transition-all duration-500"
           >
             <motion.div
               variants={{ hover: { x: 0 } }}
