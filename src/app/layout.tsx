@@ -94,7 +94,7 @@ export default function RootLayout({
               "@type": "VisualArtsEvent", 
               "name": "Lighthouse Digital Experience",
               "description": "A high-fidelity WebGL storytelling journey.",
-              "image": "https://lighthouse.sujitkoji.com/og-img.jpg",
+              "image": "https://lighthouse.sujitkoji.com/og-img.png",
               "organizer": {
                 "@type": "Person",
                 "name": "Sujit Koji",

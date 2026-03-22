@@ -4,8 +4,6 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { Water } from "three-stdlib";
 
-
-
 type WaterShader = {
   uniforms: {
     [key: string]: THREE.IUniform;
@@ -65,7 +63,6 @@ export default function Ocean() {
       s.uniforms.causticsMap = { value: causticsTex };
       s.uniforms.causticsTime = { value: 0 };
 
-      /* ---- add uniforms ---- */
       s.fragmentShader = s.fragmentShader.replace(
         "#include <common>",
         `
@@ -75,7 +72,6 @@ export default function Ocean() {
         `
       );
 
-      /* ---- physically soft caustics ---- */
       s.fragmentShader = s.fragmentShader.replace(
         "#include <output_fragment>",
         `

@@ -72,7 +72,7 @@ export default function MovingClouds() {
         if (!c) return;
 
         cloud.position.x = c.basePos.x + Math.sin(t * c.speed + c.phase) * 25;
-        cloud.position.y = c.basePos.y + Math.sin(t * 0.2 + c.phase) * 1.5; // slight floating
+        cloud.position.y = c.basePos.y + Math.sin(t * 0.2 + c.phase) * 1.5; 
         cloud.position.z = c.basePos.z + Math.cos(t * c.speed + c.phase) * 20;
       });
     }

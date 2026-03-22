@@ -12,7 +12,7 @@ export default function Lighthouse() {
   const lighthouseScene = useMemo(() => scene.clone(), [scene]);
 
   useFrame(({ clock }) => {
-    const t = clock.elapsedTime;
+    const t = clock.getElapsedTime();
 
     if (lighthouseRef.current) {
       lighthouseRef.current.position.y = -5 + Math.sin(t * 0.4) * 0.15;
@@ -20,21 +20,18 @@ export default function Lighthouse() {
     }
 
     if (bulbRef.current) {
-      bulbRef.current.intensity =
-        80 +
-        Math.sin(t * 12) * 8 +
-        Math.sin(t * 40) * 3;
+      bulbRef.current.intensity = 80 + Math.sin(t * 12) * 8 + Math.sin(t * 40) * 3;
     }
   });
 
   return (
     <>
-   
       <directionalLight
         position={[40, 80, 60]}
         intensity={3}
         color="#ffffff"
         castShadow
+        shadow-mapSize={[1024, 1024]} 
       />
 
       <directionalLight
@@ -49,25 +46,23 @@ export default function Lighthouse() {
         <primitive object={lighthouseScene} scale={0.55} />
 
         <group position={[1, 37, 0]}>
-          
           <pointLight
             ref={bulbRef}
             intensity={60}
             distance={80}
-            decay={10}
+            decay={2}
             color="#ffdca8"
           />
 
           <mesh position={[-1, -1, -4]}>
-            <sphereGeometry args={[1, 64, 64]} />
+            <sphereGeometry args={[1, 32, 32]} />
             <meshStandardMaterial
               color="#ffffff"
               emissive="#ffffff"
               emissiveIntensity={10}
-              toneMapped={true}
+              toneMapped={false} 
             />
           </mesh>
-
         </group>
       </group>
     </>

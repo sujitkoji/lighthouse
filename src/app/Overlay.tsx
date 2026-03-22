@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -65,7 +64,6 @@ export default function Overlay() {
         )}
       </AnimatePresence>
 
-      {/* 📡 TOP NAV EXPERIMENT */}
       <div className="flex justify-between items-start z-10">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -91,7 +89,6 @@ export default function Overlay() {
         </div>
       </div>
 
-      {/* 🗼 THE MASTER TYPOGRAPHY (Parallax effect) */}
       <div className="relative z-10 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
@@ -99,7 +96,7 @@ export default function Overlay() {
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           className="relative group"
         >
-          <h1 className="text-[11vw] leading-[0.8] font-black text-transparent stroke-text tracking-tighter mix-blend-overlay opacity-20 uppercase">
+          <h1 className="text-[11vw] leading-[0.8] font-black text-transparent stroke-text tracking-tighter mix-blend-overlay opacity-40 uppercase">
             OCEANIC
           </h1>
           <h1 className="text-[14vw] leading-[0.8] font-black text-white tracking-tighter -mt-[5vw] drop-shadow-2xl uppercase">
@@ -114,10 +111,9 @@ export default function Overlay() {
         </motion.div>
       </div>
 
-      {/* 🌊 BOTTOM STATUS BAR */}
       <div className="flex justify-between items-end border-t border-white/10 pt-6 z-10">
         <div className="max-w-xs">
-          <p className="text-[8px] leading-relaxed text-white/30 uppercase tracking-[0.3em] font-mono">
+          <p className="text-[8px] leading-relaxed text-white/50 uppercase tracking-[0.3em] font-mono">
             [ system_status: optimal ] <br />
             illuminating the path for those lost at sea.
           </p>
@@ -125,7 +121,7 @@ export default function Overlay() {
 
          <div className="flex items-center gap-8">
             <div className="hidden md:block">
-                <span className="text-[8px] text-white/30 tracking-widest block mb-1 uppercase text-right">Signal Strength</span>
+                <span className="text-[8px] text-white/50 tracking-widest block mb-1 uppercase text-right">Signal Strength</span>
                 <div className="flex gap-1">
                     {[1, 2, 3, 4, 5].map((i) => (
                         <motion.div 

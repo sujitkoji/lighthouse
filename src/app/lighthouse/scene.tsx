@@ -9,18 +9,17 @@ import LightHouse from "@/app/lighthouse/lighthouseGLB"
 import Lightning from "@/app/lighthouse/Lightning"
 
 
-
 export default function Scene() {
   return (
 
     <Canvas camera={{ position: [0, 6, 60], fov: 75 }}
+      dpr={[1, 2]}
       style={{ width: "100vw", height: "100vh" }}
       gl={{ antialias: true, powerPreference: "high-performance" }}
       onCreated={({ gl }) => {
         gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         gl.outputColorSpace = THREE.SRGBColorSpace;
       }}
-      dpr={[1, 2]}
     >
       <color attach="background" args={["#000000"]} />
 
@@ -28,7 +27,7 @@ export default function Scene() {
       <pointLight decay={0.05} position={[-100, -100, -100]} />
 
       <Sky
-        sunPosition={[-100, 30, -400]}
+        sunPosition={[-100, 60, -400]}
         turbidity={0.6}
         rayleigh={0.3}
         mieCoefficient={0.5}

@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "sujitkoji.vercel.app",
+        hostname: "sujitkoji.com",
         pathname: "/**",
       },
     ],
@@ -49,7 +49,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: "frame-ancestors 'self' https://codepen.io https://cdpn.io https://lighthouse.vercel.app;",
+            value: "frame-ancestors 'self' https://codepen.io https://cdpn.io https://lighthouse.sujitkoji.com;",
           },
           { 
             key: "X-Content-Type-Options", 

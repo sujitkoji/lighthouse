@@ -6,6 +6,7 @@
 [![WebGL](https://img.shields.io/badge/WebGL-3D-red.svg?style=for-the-badge)]()
 [![React Three Fiber](https://img.shields.io/badge/R3F-Library-black.svg?style=for-the-badge)]()
 [![Next.js](https://img.shields.io/badge/Next.js-14-white.svg?style=for-the-badge)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 **An immersive maritime environment crafted with WebGL & React Three Fiber.**
 
@@ -107,11 +108,22 @@ graph LR
     style E fill:#111,stroke:#8b949e,stroke-width:2px
 ```
 
+
+### / LICENSE & USAGE
+
+This project is a **Technical Study** and is intended for **Educational Purposes** only. 
+
+- **[ 01. LOGIC ]** The source code is licensed under the [MIT License](LICENSE). You are free to explore, fork, and adapt the engine for your own experiments.
+- **[ 02. ASSETS ]** The 3D models, textures, and environment maps remain the intellectual property of their respective creators. No commercial usage is permitted for the assets contained within this repository.
+- **[ 03. ATTRIBUTION ]** This is a non-commercial laboratory. If the shader logic or atmospheric systems are integrated into your projects, a credit back to **Sujit Koji** is required to maintain the spirit of open-source authorship.
+
+---
+
 ### / ARCHITECTURE AUTHORSHIP
 
 **SUJIT KOJI** Creative Technologist & WebGL Architect [ [PORTFOLIO](https://sujitkoji.com) ] &nbsp; / &nbsp; [ [LINKEDIN](https://www.linkedin.com/in/sujitkoji/) ]
 
 
-© 2026 — Open Source Creative Experiment
+© 2026 - Open Source Creative Experiment
 
 </div>
