@@ -113,9 +113,9 @@ graph LR
 
 This project is a **Technical Study** and is intended for **Educational Purposes** only. 
 
- **[ 01. LOGIC ]** The source code is licensed under the [MIT License](LICENSE). You are free to explore, fork, and adapt the engine for your own experiments.
- **[ 02. ASSETS ]** The 3D models, textures, and environment maps remain the intellectual property of their respective creators. No commercial usage is permitted for the assets contained within this repository.
- **[ 03. ATTRIBUTION ]** This is a non-commercial laboratory. If the shader logic or atmospheric systems are integrated into your projects, a credit back to **Sujit Koji** is required to maintain the spirit of open-source authorship.
+ - **[ LOGIC ]** The source code is licensed under the [MIT License](LICENSE). You are free to explore, fork, and adapt the engine for your own experiments.
+ - **[ ASSETS ]** The 3D models, textures, and environment maps remain the intellectual property of their respective creators. No commercial usage is permitted for the assets contained within this repository.
+-  **[ ATTRIBUTION ]** This is a non-commercial laboratory. If the shader logic or atmospheric systems are integrated into your projects, a credit back to **Sujit Koji** is required to maintain the spirit of open-source authorship.
 
 ---
 
