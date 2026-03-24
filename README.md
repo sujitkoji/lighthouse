@@ -127,4 +127,3 @@ This project is a **Technical Study** and is intended for **Educational Purposes
 © 2026 - Open Source Creative Experiment
 
 </div>
-#
