@@ -57,8 +57,8 @@ export default function Lighthouse() {
             color="#ffdca8"
           />
 
-          <mesh position={[-1, -1, -4]}>
-            <sphereGeometry args={[1, 32, 32]} />
+          <mesh position={[-1, -2.5, -3.5]}>
+            <sphereGeometry args={[1.3, 32, 32]} />
             <meshStandardMaterial
               color="#ffffff"
               emissive="#ffffff"
