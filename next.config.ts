@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
 
-  // ✅ Turbopack GLSL support
   turbopack: {
     rules: {
       "*.glsl": { loaders: ["raw-loader", "glslify-loader"] },
@@ -17,7 +16,6 @@ const nextConfig: NextConfig = {
     },
   },
 
-  // ✅ Webpack fallback (important)
   webpack(config: Configuration) {
     config.module?.rules?.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
@@ -30,7 +28,6 @@ const nextConfig: NextConfig = {
 
   typedRoutes: false,
 
-  // ✅ Images (CDN included)
   images: {
     remotePatterns: [
       {
@@ -51,7 +48,6 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // 🔥 CORS WORKAROUND (VERY IMPORTANT)
   async rewrites() {
     return [
       {
@@ -61,28 +57,15 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // ✅ Security headers (fixed CSP)
+  
+
   async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
-          {
-            key: "Content-Security-Policy",
-            value: `
-              default-src 'self';
-              connect-src 'self' https://cdn.sujitkoji.com;
-              img-src 'self' https://* data:;
-              media-src 'self' https://*;
-              script-src 'self' 'unsafe-eval' 'unsafe-inline';
-              style-src 'self' 'unsafe-inline';
-              frame-ancestors 'self' https://codepen.io https://cdpn.io https://lighthouse.sujitkoji.com;
-            `.replace(/\n/g, ""),
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",

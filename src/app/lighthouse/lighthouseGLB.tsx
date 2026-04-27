@@ -5,12 +5,14 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 
 const LIGHTHOUSE_GLB = "https://cdn.sujitkoji.com/lighthouse/lighthouse.glb"
+const DRACO_DECODER = "https://www.gstatic.com/draco/versioned/decoders/1.5.5/";
+
 
 export default function Lighthouse() {
   const lighthouseRef = useRef<THREE.Group>(null);
   const bulbRef = useRef<THREE.PointLight>(null);
 
-  const { scene } = useGLTF(LIGHTHOUSE_GLB);
+  const { scene } = useGLTF(LIGHTHOUSE_GLB, DRACO_DECODER);
   const lighthouseScene = useMemo(() => scene.clone(), [scene]);
 
   useFrame(({ clock }) => {
@@ -71,4 +73,4 @@ export default function Lighthouse() {
   );
 }
 
-useGLTF.preload(LIGHTHOUSE_GLB);
+useGLTF.preload(LIGHTHOUSE_GLB, DRACO_DECODER);
